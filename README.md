@@ -1,4 +1,4 @@
 Kiwi
 ====
 
-Is just a Kiwi
+It's just a Kiwi
