@@ -3,8 +3,7 @@
 <head>
 	<meta charset="utf-8">
     <title>kiwi</title>
-	<script src=".\js\EaselJS-master\lib\easeljs-0.8.0.min.js" >
-    <!--<script src="http://code.createjs.com/easeljs-0.7.0.min.js" >-->
+    <script src="http://code.createjs.com/createjs-2013.12.12.min.js" >
     </script>
     <script>
 		var queue;
@@ -12,9 +11,8 @@
         function init() {
 			// Create state
 			stage = new createjs.Stage("kiwiCanvas");
-			
 			// Load Sources
-			queue = new createjs.loadQueue(false);
+			queue = new createjs.LoadQueue(true);
 			queue.installPlugin(createjs.Sound);
 			queue.addEventListener("complete", handleComplete);
 			queue.loadManifest([{id:"background", src:".\Images\background.png"}]);
