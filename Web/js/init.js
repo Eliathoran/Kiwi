@@ -3,11 +3,9 @@ var stage;
 function init() {
 	// Create state
 	stage = new createjs.Stage("kiwiCanvas");
+	
 	// Load Sources
-	queue = new createjs.LoadQueue(true);
-	queue.installPlugin(createjs.Sound);
-	queue.addEventListener("complete", handleComplete);
-	queue.loadManifest([{id:"background", src:".\Images\background.png"}]);
+	LoadSources()
 }
 
 function handleComplete(event)
@@ -22,6 +20,14 @@ function handleComplete(event)
 	
 	stage.addChild(circle);
 	stage.update();
+}
+
+function LoadSources()
+{
+	queue = new createjs.LoadQueue(true);
+	queue.installPlugin(createjs.Sound);
+	queue.addEventListener("complete", handleComplete);
+	queue.loadManifest([{id:"background", src:".\Images\background.png"}]);
 }
 
 function tick(event)
