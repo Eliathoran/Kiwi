@@ -86,19 +86,20 @@ function InitGame()
 }
         
 function tick() {
-	
-	meters += backgroundFrontSpeed;
-	distance.text = meters;
-	background.x -= backgroudSpeed;
-	backgroundFront1.x -= backgroundFrontSpeed;
-	
-	if (background.x >= stage.canvas.width) { background.x = 0; }
-	if (backgroundFront1.x >= stage.canvas.width) { backgroundFront1.x = 0; }
-	
-	background2.x = background.x - stage.canvas.width;
-	backgroundFront2.x = backgroundFront1.x - stage.canvas.width;
-	
-	stage.update();
+    if(play == 1)
+    {
+        meters += backgroundFrontSpeed;
+        distance.text = meters;
+        background.x -= backgroudSpeed;
+        backgroundFront1.x -= backgroundFrontSpeed;
+
+        if (background.x >= stage.canvas.width) { background.x = 0; }
+        if (backgroundFront1.x >= stage.canvas.width) { backgroundFront1.x = 0; }
+
+        background2.x = background.x - stage.canvas.width;
+        backgroundFront2.x = backgroundFront1.x - stage.canvas.width;
+    }
+    stage.update();
 }
 
 function LoadKeyEvents()
