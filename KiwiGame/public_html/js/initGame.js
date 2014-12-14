@@ -4,6 +4,7 @@ var background2;
 var backgroundFront1;
 var backgroundFront2;
 var kiwi;
+var platformUpdater;
 var platformCreator;
 
 // Speed
@@ -85,7 +86,8 @@ function InitGame()
 	stage.addChild(debug);
 	
         platformCreator = new PlatformCreator();
-        platformCreator.CreateElements(stage);
+        platformUpdater = new PlatformUpdater();
+        platformCreator.CreateElements(stage, platformUpdater);
         world.Init();
 	//stage.update();
 }
@@ -104,7 +106,7 @@ function tick() {
         background2.x = background.x - stage.canvas.width;
         backgroundFront2.x = backgroundFront1.x - stage.canvas.width;
         kiwi.Update();
-        platformCreator.Update();
+        platformUpdater.UpdatePlatforms();
     }
     stage.update();
 }

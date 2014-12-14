@@ -5,22 +5,16 @@
  */
 function PlatformCreator()
 {
-    this.platforms = [];
-    this.CreateElements = function (stage)
+    this.CreateElements = function (stage, platformUpdater)
     {
-        this.platforms.push(new Platform(40, 190));
-        this.platforms.push(new Platform(300, 100));
-        for (i = 0; i < this.platforms.length; i++) {
-            this.platforms[i].Draw(stage);
-        }
+        var platform1 = new Platform(40, 190);
+        platformUpdater.AddPlatform(platform1);
+        platform1.Draw(stage);
+        
+        var platform2 = new Platform(300, 100);
+        platformUpdater.AddPlatform(platform2);
+        platform2.Draw(stage);
     }
-    
-    this.Update = function()
-    {
-        for (i = 0; i < this.platforms.length; i++) {
-            this.platforms[i].Update();
-        }
-    };
 }
 
 
