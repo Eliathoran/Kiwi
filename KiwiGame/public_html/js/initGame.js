@@ -82,8 +82,6 @@ function InitGame()
 	
 	// Starting distance
 	meters = 0;
-        
-        // Texts
 	distanceText = new createjs.Text("meters:", "20px Arial", "#ff7700");
 	distanceText.y = 45;
 	distanceText.x = stage.canvas.width - distanceText.width;
@@ -93,6 +91,11 @@ function InitGame()
 	distance.y = 45;
 	distance.x =  distanceText.width;
 	stage.addChild(distance);
+	
+	debug = new createjs.Text(distanceText.width, "20px Arial", "#ff7700");
+	debug.y = 45;
+	debug.x =  distanceText.width;
+	stage.addChild(debug);
 	
 	stage.update();
 }
