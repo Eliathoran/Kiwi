@@ -6,7 +6,7 @@ var background;
 var background2;
 var backgroundFront1;
 var backgroundFront2;
-var kiwiAnimation;
+var kiwi;
 
 // Speed
 var backgroudSpeed;
@@ -29,9 +29,7 @@ function init() {
 	
 	InitGame();
 	
-	createjs.Ticker.setFPS(10);
 	createjs.Ticker.addEventListener("tick", tick);
-	createjs.Ticker.setInterval(25);
 	createjs.Ticker.setFPS(10);
 }
 
@@ -46,27 +44,14 @@ function LoadFiles()
 	backgroundFront2 = new createjs.Bitmap("Images/bigtree.png");
 
 	// Load Kiwi animation
-	 var data = {
-		images: ["Images/kiwi_sprite.png"],
-		frames: {width:56.33, height:47, count:12},
-		animations: {
-			run:[0,10, true],
-			jump:[0,10, true],
-			die:[0,10, true]
-		}
-	};
-	
-	// Imagen Grande: 225.5 - 188 - 12
-	
-	var ss = new createjs.SpriteSheet(data);
-	kiwiAnimation = new createjs.Sprite(ss);
+        kiwi = new Kiwi();
+        kiwi.Load();
 }
 
 function InitGame()
 {			
-	kiwiAnimation.x = 20;
-	kiwiAnimation.y = stage.canvas.height/2;
-	kiwiAnimation.gotoAndPlay("run");
+	kiwi.Init();
+	kiwi.Action("run");
 	
 	backgroundFront1.y -= backgroundFront1.y/2;
 	backgroundFront1.y -= backgroundFront2.y/2;
@@ -74,7 +59,7 @@ function InitGame()
 	stage.addChild(background2);
 	stage.addChild(backgroundFront1);
 	stage.addChild(backgroundFront2);
-	stage.addChild(kiwiAnimation);
+	stage.addChild(kiwi.sprite);
 	
 	// Starting speed
 	backgroudSpeed = 0.5;
@@ -97,7 +82,7 @@ function InitGame()
 	debug.x =  distanceText.width;
 	stage.addChild(debug);
 	
-	stage.update();
+	//stage.update();
 }
         
 function tick() {
@@ -110,8 +95,8 @@ function tick() {
 	if (background.x >= stage.canvas.width) { background.x = 0; }
 	if (backgroundFront1.x >= stage.canvas.width) { backgroundFront1.x = 0; }
 	
-	background2.x = background.x - stage.canvas.width
-	backgroundFront2.x = backgroundFront1.x - stage.canvas.width
+	background2.x = background.x - stage.canvas.width;
+	backgroundFront2.x = backgroundFront1.x - stage.canvas.width;
 	
 	stage.update();
 }
