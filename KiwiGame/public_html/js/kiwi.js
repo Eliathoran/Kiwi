@@ -5,6 +5,8 @@
  */
 function Kiwi()
 {
+    this.x = 20;
+    this.y = 150;
     this.sprite = null;
  
     this.Load = function () {
@@ -23,11 +25,31 @@ function Kiwi()
     };
     
     this.Init = function () {
-        this.sprite.x = 20;
-	this.sprite.y = stage.canvas.height/2;
+        var bodyDef = new Box2D.Dynamics.b2BodyDef;
+        var fixDef = new Box2D.Dynamics.b2FixtureDef;
+        fixDef.density = 1.0;
+        fixDef.friction = 0.5;
+        fixDef.restitution = 0.2;
+        bodyDef.type = Box2D.Dynamics.b2Body.b2_dynamicBody;
+        fixDef.shape = new Box2D.Collision.Shapes.b2CircleShape(50);
+        bodyDef.position.x = this.x;
+        bodyDef.position.y = this.y;
+        world.AddBody(bodyDef, fixDef);
+       
+        this.sprite.x = this.x;
+	this.sprite.y = this.y;
     };
     
     this.Action = function (actionName) {
         this.sprite.gotoAndPlay(actionName);
+    };
+    
+    this.Update = function ()
+    {
+        this.x++;
+    };
+    
+    this.Jump = function()
+    {
     };
 }

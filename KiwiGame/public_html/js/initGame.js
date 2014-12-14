@@ -51,6 +51,7 @@ function LoadFiles()
 
 function InitGame()
 {
+        world = new WorldManager();
 	kiwi.Init();
 	kiwi.Action("run");
 	
@@ -85,6 +86,7 @@ function InitGame()
 	
         platformCreator = new PlatformCreator();
         platformCreator.CreateElements(stage);
+        world.Init();
 	//stage.update();
 }
         
@@ -101,6 +103,8 @@ function tick() {
 
         background2.x = background.x - stage.canvas.width;
         backgroundFront2.x = backgroundFront1.x - stage.canvas.width;
+        kiwi.Update();
+        platformCreator.Update();
     }
     stage.update();
 }
@@ -130,7 +134,7 @@ function handleKeyDown(e)
         PauseMenu(); 
     }
     
-    kiwi.sprite.y = 10;
+    kiwi.jump();
 }
 
 function handleKeyUp(e)
