@@ -1,6 +1,3 @@
-// Game settings
-var play; // 0: Menu; 1: Playing; 2: Pause
-
 // Menu Items
 var startMenu;
 var soundMenu;
@@ -13,100 +10,63 @@ var bestScoreMenu;
 function CreateMenu()
 {
     // Start Game Menu Item
-    startMenu = NewMenuItem("start");
+    startMenu = NewMenuItem();
+    startMenu.addEventListener("click", handleStartClick);
+    startMenu.x = stage.canvas.width/2;
     stage.addChild(startMenu);
     
     // Options Game Menu Item
-    soundMenu = NewMenuItem("sound");
+    soundMenu = NewMenuItem();
+    soundMenu.addEventListener("click", handleSoundClick);
+    soundMenu.x = stage.canvas.width/2;
+    soundMenu.y = stage.canvas.width/2.5;
     stage.addChild(soundMenu);
     
     // Best Scores Menu Item
-    bestScoreMenu = NewMenuItem("score");
+    bestScoreMenu = NewMenuItem();
+    bestScoreMenu.addEventListener("click", handleScoreClick);
+    bestScoreMenu.x = stage.canvas.width/2;
+    bestScoreMenu.y = stage.canvas.width/5;
     stage.addChild(bestScoreMenu);   
 }
 
-function NewMenuItem(name)
+function NewMenuItem()
 {
     var menu = new createjs.Shape();
-    menu.addEventListener(name, handleClick);
-    menu.graphics.beginFill("rgba(0,255,255,1)").drawRoundRect(0, 0, 120, 120, 5);
+    menu.graphics.beginFill("rgba(102,51,0,1)").drawRoundRect(0, 0, 120, 80, 5);
+    menu.graphics.beginFill("rgba(255,255,255,1)").drawRoundRect(1, 1, 118, 78, 5);
     return menu;
 }
 
-function handleClick(event)
+function handleStartClick(event)
 {
-    switch (event)
-    {
-        case "start":
-            RemoveMenu();
-            break;
-        case "sound":
-            RemoveMenu();
-            break;
-        case "score":
-            RemoveMenu();
-            break;
-        default:
-            break;
-    }
+    console.log("Clicked");
+    RemoveMenu();
+    play = 1;
+    LoadFiles();
+    LoadKeyEvents();
+    InitGame();
+    createjs.Ticker.addEventListener("tick", tick);
+    createjs.Ticker.setInterval(25);
+    createjs.Ticker.setFPS(10);
+    stage.update();
+}
+
+function handleSoundClick(event)
+{
+    RemoveMenu();
+    stage.update();
+}
+
+function handleScoreClick(event)
+{
+    RemoveMenu();
+    stage.update();
 }
 
 function RemoveMenu()
 {
-    stage.removeChild(startGame);
-    stage.removeChild(sound);
-    stage.removeChild(bestScore);
-}
-
-
-///////////////////////////////////////////////////////////
-//////////////////////// Game Menu ////////////////////////
-///////////////////////////////////////////////////////////
-
-function CreateMenu()
-{
-    // Start Game Menu Item
-    startMenu = NewMenuItem("start");
-    stage.addChild(startMenu);
-    
-    // Options Game Menu Item
-    soundMenu = NewMenuItem("sound");
-    stage.addChild(soundMenu);
-    
-    // Best Scores Menu Item
-    bestScoreMenu = NewMenuItem("score");
-    stage.addChild(bestScoreMenu);   
-}
-
-function NewMenuItem(name)
-{
-    var menu = new createjs.Shape();
-    menu.addEventListener(name, handleClick);
-    menu.graphics.beginFill("rgba(0,255,255,1)").drawRoundRect(0, 0, 120, 120, 5);
-    return menu;
-}
-
-function handleClick(event)
-{
-    switch (event)
-    {
-        case "start":
-            RemoveMenu();
-            break;
-        case "sound":
-            RemoveMenu();
-            break;
-        case "score":
-            RemoveMenu();
-            break;
-        default:
-            break;
-    }
-}
-
-function RemoveMenu()
-{
-    stage.removeChild(startGame);
-    stage.removeChild(sound);
-    stage.removeChild(bestScore);
+    stage.removeChild(startMenu);
+    stage.removeChild(soundMenu);
+    stage.removeChild(bestScoreMenu);
 }
