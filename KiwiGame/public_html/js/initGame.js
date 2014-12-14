@@ -12,7 +12,6 @@ var kiwiAnimation;
 var backgroudSpeed;
 var backgroundFrontSpeed;
 
-
 // Distance
 var meters;
 
@@ -26,12 +25,11 @@ function init() {
 	stage = new createjs.Stage(canvas);
 	
 	LoadFiles();
-	
+        LoadKeyEvents();
 	InitGame();
-	
-	createjs.Ticker.setFPS(10);
+        
 	createjs.Ticker.addEventListener("tick", tick);
-	createjs.Ticker.setInterval(25);
+	//createjs.Ticker.setInterval(25);
 	createjs.Ticker.setFPS(10);
 }
 
@@ -114,4 +112,32 @@ function tick() {
 	backgroundFront2.x = backgroundFront1.x - stage.canvas.width
 	
 	stage.update();
+}
+
+function LoadKeyEvents()
+{
+    if ('ontouchstart' in document.documentElement)
+    {
+        canvas.addEventListener('touchstart', function(e) { handleKeyDown(); }, false);
+        canvas.addEventListener('touchend', function(e) { handleKeyUp(); }, false);
+    }
+    else
+    {
+        document.onkeydown = handleKeyDown;
+        document.onkeyup = handleKeyUp;
+        document.onmousedown = handleKeyDown;
+        document.onmouseup = handleKeyUp;
+    }
+}
+
+function handleKeyDown(e)
+{
+    // execute things on KeyDown
+    // e.g.
+    kiwiAnimation.y = 10;
+}
+
+function handleKeyUp(e)
+{
+    // execute things on KeyUp
 }
