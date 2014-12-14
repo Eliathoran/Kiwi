@@ -48,6 +48,7 @@ function LoadFiles()
 
 function InitGame()
 {
+        world = new WorldManager();
 	kiwi.Init();
 	kiwi.Action("run");
 	
@@ -82,25 +83,27 @@ function InitGame()
 	
         platformCreator = new PlatformCreator();
         platformCreator.CreateElements(stage);
+        world.Init();
 	//stage.update();
 }
         
 function tick() {
-	
-	meters += backgroundFrontSpeed;
-	distance.text = meters;
-	background.x -= backgroudSpeed;
-	backgroundFront1.x -= backgroundFrontSpeed;
-	
-	if (background.x >= stage.canvas.width) { background.x = 0; }
-	if (backgroundFront1.x >= stage.canvas.width) { backgroundFront1.x = 0; }
-	
-	background2.x = background.x - stage.canvas.width;
-	backgroundFront2.x = backgroundFront1.x - stage.canvas.width;
-	
+    if(play == 1)
+    {
+        meters += backgroundFrontSpeed;
+        distance.text = meters;
+        background.x -= backgroudSpeed;
+        backgroundFront1.x -= backgroundFrontSpeed;
+
+        if (background.x >= stage.canvas.width) { background.x = 0; }
+        if (backgroundFront1.x >= stage.canvas.width) { backgroundFront1.x = 0; }
+
+        background2.x = background.x - stage.canvas.width;
+        backgroundFront2.x = backgroundFront1.x - stage.canvas.width;
         kiwi.Update();
         platformCreator.Update();
-	stage.update();
+    }
+    stage.update();
 }
 
 function LoadKeyEvents()
@@ -123,7 +126,7 @@ function handleKeyDown(e)
 {
     // execute things on KeyDown
     // e.g.
-    kiwi.sprite.y = 10;
+    kiwi.jump();
 }
 
 function handleKeyUp(e)

@@ -9,8 +9,8 @@ function WorldManager()
     this.Init = function()
     {
         var debugDraw = new Box2D.Dynamics.b2DebugDraw();
-        debugDraw.SetSprite(document.getElementById("kiwiCanvasDebug").getContext("2d"));
-        debugDraw.SetDrawScale(SCALE);
+        debugDraw.SetSprite(document.getElementById("debugKiwiCanvas").getContext("2d"));
+        debugDraw.SetDrawScale(this.SCALE);
         debugDraw.SetFillAlpha(0.3);
         debugDraw.SetLineThickness(1.0);
         debugDraw.SetFlags(Box2D.Dynamics.b2DebugDraw.e_shapeBit | Box2D.Dynamics.b2DebugDraw.e_jointBit);
@@ -19,6 +19,6 @@ function WorldManager()
     
     this.AddBody = function(bodyDef, fixDef)
     {
-       world.CreateBody(bodyDef).CreateFixture(fixDef);
+       this.world.CreateBody(bodyDef).CreateFixture(fixDef);
     };
 }
