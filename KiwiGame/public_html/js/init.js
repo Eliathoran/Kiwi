@@ -12,6 +12,7 @@ function init() {
         
         CreateMenu();
         stage.update();
+        keyPressed = false;
 	//LoadFiles();
         //LoadKeyEvents();
 	//InitGame();

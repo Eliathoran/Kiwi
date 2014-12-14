@@ -18,6 +18,9 @@ var distance;
 var distanceText;
 var debug;
 
+// Key EventHandler
+var keyPressed;
+
 function init() {
 	var canvas = document.getElementById("kiwiCanvas");
 	stage = new createjs.Stage(canvas);
@@ -34,8 +37,8 @@ function init() {
 function LoadFiles()
 {
 	// Load backgroud
-	background = new createjs.Bitmap("Images/back.jpg");
-	background2 = new createjs.Bitmap("Images/back.jpg");
+	background = new createjs.Bitmap("Images/background.png");
+	background2 = new createjs.Bitmap("Images/background.png");
 	
 	// Load front background
 	backgroundFront1 = new createjs.Bitmap("Images/bigtree.png");
@@ -126,10 +129,20 @@ function handleKeyDown(e)
 {
     // execute things on KeyDown
     // e.g.
+    if(play == 1)
+    {
+        PauseMenu(); 
+    }
+    
     kiwi.jump();
 }
 
 function handleKeyUp(e)
 {
     // execute things on KeyUp
+}
+
+function DestroyGame()
+{
+    // TODO: Destroy all the game
 }
