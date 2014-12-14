@@ -121,7 +121,7 @@ function handleKeyDown(e)
 {
     // execute things on KeyDown
     // e.g.
-    kiwiAnimation.y = 10;
+    kiwi.sprite.y = 10;
 }
 
 function handleKeyUp(e)
