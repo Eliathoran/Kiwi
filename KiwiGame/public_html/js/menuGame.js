@@ -139,12 +139,14 @@ function handleScoreClick(event)
 
 function handleContinueClick(event)
 {
+    console.log("continue Clicked");
     play = 1;
     RemovePauseMenu(); 
 }
 
 function handleExitClick(event)
 {
+    console.log("exit Clicked");
     play = 0;
     RemovePauseMenu();
     // TODO: Remove all the game

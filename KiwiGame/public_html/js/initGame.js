@@ -18,6 +18,9 @@ var distance;
 var distanceText;
 var debug;
 
+// Key EventHandler
+var keyPressed;
+
 function init() {
 	var canvas = document.getElementById("kiwiCanvas");
 	stage = new createjs.Stage(canvas);
@@ -122,6 +125,11 @@ function handleKeyDown(e)
 {
     // execute things on KeyDown
     // e.g.
+    if(play == 1)
+    {
+        PauseMenu(); 
+    }
+    
     kiwi.sprite.y = 10;
 }
 
