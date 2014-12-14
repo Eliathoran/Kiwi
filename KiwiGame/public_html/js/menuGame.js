@@ -20,32 +20,32 @@ function CreateMenu()
     // Start Game Menu Item
     startMenu = NewMenuItem();
     startMenu.addEventListener("click", handleStartClick);
-    startMenu.x = stage.canvas.width/2;
+    startMenu.x = stage.canvas.width/2 - 60;
     stage.addChild(startMenu);
     startText = new createjs.Text("Start Game", "20px Arial", "#ff7700");
-    startText.x = stage.canvas.width/2+8;
+    startText.x = stage.canvas.width/2+8- 60;
     startText.y = 27;
     stage.addChild(startText);
     
     // Options Game Menu Item
     soundMenu = NewMenuItem();
     soundMenu.addEventListener("click", handleSoundClick);
-    soundMenu.x = stage.canvas.width/2;
+    soundMenu.x = stage.canvas.width/2 - 60;
     soundMenu.y = stage.canvas.width/2.5;
     stage.addChild(soundMenu);
     soundText = new createjs.Text("Sound", "20px Arial", "#ff7700");
-    soundText.x = stage.canvas.width/2+29;
+    soundText.x = stage.canvas.width/2+29- 60;
     soundText.y = 27+soundMenu.y;
     stage.addChild(soundText);
     
     // Best Scores Menu Item
     bestScoreMenu = NewMenuItem();
     bestScoreMenu.addEventListener("click", handleScoreClick);
-    bestScoreMenu.x = stage.canvas.width/2;
+    bestScoreMenu.x = stage.canvas.width/2 - 60;
     bestScoreMenu.y = stage.canvas.width/5;
     stage.addChild(bestScoreMenu);   
     scoreText = new createjs.Text("Best Scores", "20px Arial", "#ff7700");
-    scoreText.x = stage.canvas.width/2+7;
+    scoreText.x = stage.canvas.width/2+7- 60;
     scoreText.y = 27+bestScoreMenu.y;
     stage.addChild(scoreText);
 }
@@ -83,22 +83,22 @@ function PauseMenu()
     // Continue Button
     continueMenu = NewMenuItem();
     continueMenu.addEventListener("click", handleContinueClick);
-    continueMenu.x = stage.canvas.width/2
+    continueMenu.x = stage.canvas.width/2 - 60;
     continueMenu.y = stage.canvas.width/8;
     stage.addChild(continueMenu);
     continueText = new createjs.Text("Continue", "20px Arial", "#ff7700");
-    continueText.x = stage.canvas.width/2+20;
+    continueText.x = stage.canvas.width/2+20- 60;
     continueText.y = 27+continueMenu.y;
     stage.addChild(continueText);
     
     // Exit Button
     exitMenu = NewMenuItem();
     exitMenu.addEventListener("click", handleExitClick);
-    exitMenu.x = stage.canvas.width/2;
+    exitMenu.x = stage.canvas.width/2 - 60;;
     exitMenu.y = stage.canvas.width/3;
     stage.addChild(exitMenu);
     exitText = new createjs.Text("Exit", "20px Arial", "#ff7700");
-    exitText.x = stage.canvas.width/2+40;
+    exitText.x = stage.canvas.width/2+40- 60;
     exitText.y = 27+exitMenu.y;
     stage.addChild(exitText);
 }
