@@ -5,12 +5,23 @@
  */
 function PlatformCreator()
 {
+    this.platforms = [];
     this.CreateElements = function (stage)
     {
-        var platform1 = new Platform(200, 200); 
-        platform1.Draw(stage);
+        this.platforms.push(new Platform(200, 200));
+        
+        for (i = 0; i < this.platforms.length; i++) {
+            this.platforms[i].Draw(stage);
+        }
         //var platform2 = new Platform(100, 40); 
         //platform2.Draw(stage);
+    };
+    
+    this.Update = function()
+    {
+        for (i = 0; i < this.platforms.length; i++) {
+            this.platforms[i].Update();
+        }
     };
 }
 

@@ -5,6 +5,8 @@
  */
 function Kiwi()
 {
+    this.x = 20;
+    this.y = 150;
     this.sprite = null;
  
     this.Load = function () {
@@ -29,5 +31,10 @@ function Kiwi()
     
     this.Action = function (actionName) {
         this.sprite.gotoAndPlay(actionName);
+    };
+    
+    this.Update = function ()
+    {
+        this.x++;
     };
 }

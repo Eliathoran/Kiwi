@@ -98,6 +98,8 @@ function tick() {
 	background2.x = background.x - stage.canvas.width;
 	backgroundFront2.x = backgroundFront1.x - stage.canvas.width;
 	
+        kiwi.Update();
+        platformCreator.Update();
 	stage.update();
 }
 
