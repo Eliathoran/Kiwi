@@ -37,8 +37,8 @@ function init() {
 function LoadFiles()
 {
 	// Load backgroud
-	background = new createjs.Bitmap("Images/back.jpg");
-	background2 = new createjs.Bitmap("Images/back.jpg");
+	background = new createjs.Bitmap("Images/background.png");
+	background2 = new createjs.Bitmap("Images/background.png");
 	
 	// Load front background
 	backgroundFront1 = new createjs.Bitmap("Images/bigtree.png");
@@ -136,4 +136,9 @@ function handleKeyDown(e)
 function handleKeyUp(e)
 {
     // execute things on KeyUp
+}
+
+function DestroyGame()
+{
+    // TODO: Destroy all the game
 }

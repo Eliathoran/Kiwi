@@ -149,7 +149,7 @@ function handleExitClick(event)
     console.log("exit Clicked");
     play = 0;
     RemovePauseMenu();
-    // TODO: Remove all the game
+    DestroyGame();
     CreateMenu();
     stage.update();
 }
