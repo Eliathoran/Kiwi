@@ -21,17 +21,18 @@ function CreateMenu()
     startMenu = NewMenuItem();
     startMenu.addEventListener("click", handleStartClick);
     startMenu.x = stage.canvas.width/2 - 60;
+    startMenu.y = +10;
     stage.addChild(startMenu);
     startText = new createjs.Text("Start Game", "20px Arial", "#ff7700");
     startText.x = stage.canvas.width/2+8- 60;
-    startText.y = 27;
+    startText.y = 27+startMenu.y;
     stage.addChild(startText);
     
     // Options Game Menu Item
     soundMenu = NewMenuItem();
     soundMenu.addEventListener("click", handleSoundClick);
     soundMenu.x = stage.canvas.width/2 - 60;
-    soundMenu.y = stage.canvas.width/2.5;
+    soundMenu.y = stage.canvas.width/2.5+10;
     stage.addChild(soundMenu);
     soundText = new createjs.Text("Sound", "20px Arial", "#ff7700");
     soundText.x = stage.canvas.width/2+29- 60;
@@ -42,7 +43,7 @@ function CreateMenu()
     bestScoreMenu = NewMenuItem();
     bestScoreMenu.addEventListener("click", handleScoreClick);
     bestScoreMenu.x = stage.canvas.width/2 - 60;
-    bestScoreMenu.y = stage.canvas.width/5;
+    bestScoreMenu.y = stage.canvas.width/5+10;
     stage.addChild(bestScoreMenu);   
     scoreText = new createjs.Text("Best Scores", "20px Arial", "#ff7700");
     scoreText.x = stage.canvas.width/2+7- 60;

@@ -37,8 +37,8 @@ function init() {
 function LoadFiles()
 {
 	// Load backgroud
-	background = new createjs.Bitmap("Images/background.png");
-	background2 = new createjs.Bitmap("Images/background.png");
+	background = new createjs.Bitmap("Images/level1Background.png");
+	background2 = new createjs.Bitmap("Images/level1Background.png");
 	
 	// Load front background
 	backgroundFront1 = new createjs.Bitmap("Images/bigtree.png");
@@ -63,19 +63,19 @@ function InitGame()
 	stage.addChild(kiwi.sprite);
 	
 	// Starting speed
-	backgroudSpeed = 0.5;
+	backgroudSpeed = 0.2;
 	backgroundFrontSpeed = 1;
 	
 	// Starting distance
 	meters = 0;
 	distanceText = new createjs.Text("meters:", "20px Arial", "#ff7700");
-	distanceText.y = 45;
+	//distanceText.y = 45;
 	distanceText.x = stage.canvas.width - distanceText.width;
 	stage.addChild(distanceText);
  
 	distance = new createjs.Text("0", "20px Arial", "#ff7700");
-	distance.y = 45;
-	distance.x =  distanceText.width;
+	//distance.y = 45;
+	distance.x =  70;
 	stage.addChild(distance);
 	
 	debug = new createjs.Text(distanceText.width, "20px Arial", "#ff7700");
