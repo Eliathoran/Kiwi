@@ -8,14 +8,12 @@ function PlatformCreator()
     this.platforms = [];
     this.CreateElements = function (stage)
     {
-        this.platforms.push(new Platform(200, 200));
-        
+        this.platforms.push(new Platform(40, 190));
+        this.platforms.push(new Platform(300, 100));
         for (i = 0; i < this.platforms.length; i++) {
             this.platforms[i].Draw(stage);
         }
-        //var platform2 = new Platform(100, 40); 
-        //platform2.Draw(stage);
-    };
+    }
     
     this.Update = function()
     {
