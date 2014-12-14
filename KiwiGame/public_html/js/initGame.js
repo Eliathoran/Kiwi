@@ -1,6 +1,3 @@
-// Stage
-var stage;
-
 // Elements
 var background;
 var background2;
@@ -19,19 +16,6 @@ var meters;
 var distance;
 var distanceText;
 var debug;
-
-function init() {
-	var canvas = document.getElementById("kiwiCanvas");
-	stage = new createjs.Stage(canvas);
-	
-	LoadFiles();
-        LoadKeyEvents();
-	InitGame();
-        
-	createjs.Ticker.addEventListener("tick", tick);
-	//createjs.Ticker.setInterval(25);
-	createjs.Ticker.setFPS(10);
-}
 
 function LoadFiles()
 {
