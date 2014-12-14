@@ -4,6 +4,7 @@ var background2;
 var backgroundFront1;
 var backgroundFront2;
 var kiwi;
+var platformCreator;
 
 // Speed
 var backgroudSpeed;
@@ -39,14 +40,14 @@ function LoadFiles()
 	// Load front background
 	backgroundFront1 = new createjs.Bitmap("Images/bigtree.png");
 	backgroundFront2 = new createjs.Bitmap("Images/bigtree.png");
-
-	// Load Kiwi animation
+       
+        // Load Kiwi animation
         kiwi = new Kiwi();
         kiwi.Load();
 }
 
 function InitGame()
-{			
+{
 	kiwi.Init();
 	kiwi.Action("run");
 	
@@ -79,6 +80,8 @@ function InitGame()
 	debug.x =  distanceText.width;
 	stage.addChild(debug);
 	
+        platformCreator = new PlatformCreator();
+        platformCreator.CreateElements(stage);
 	//stage.update();
 }
         
