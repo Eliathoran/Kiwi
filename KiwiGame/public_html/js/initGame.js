@@ -1,6 +1,3 @@
-// Stage
-var stage;
-
 // Elements
 var background;
 var background2;
