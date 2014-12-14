@@ -46,7 +46,7 @@ function Kiwi()
     
     this.Update = function ()
     {
-        this.x++;
+        this.x = this.x + 3;
     };
     
     this.Jump = function()

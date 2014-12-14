@@ -66,7 +66,7 @@ function InitGame()
 	
 	// Starting speed
 	backgroudSpeed = 0.2;
-	backgroundFrontSpeed = 1;
+	backgroundFrontSpeed = 2;
 	
 	// Starting distance
 	meters = 0;
