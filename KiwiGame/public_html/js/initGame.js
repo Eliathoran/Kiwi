@@ -70,17 +70,17 @@ function InitGame()
 	
 	// Starting distance
 	meters = 0;
-	distanceText = new createjs.Text("meters:", "20px Arial", "#ff7700");
+	distanceText = new createjs.Text("meters:", "12px Arial", "#ff7700");
 	//distanceText.y = 45;
 	distanceText.x = stage.canvas.width - distanceText.width;
 	stage.addChild(distanceText);
  
-	distance = new createjs.Text("0", "20px Arial", "#ff7700");
+	distance = new createjs.Text("0", "12px Arial", "#ff7700");
 	//distance.y = 45;
 	distance.x =  70;
 	stage.addChild(distance);
 	
-	debug = new createjs.Text(distanceText.width, "20px Arial", "#ff7700");
+	debug = new createjs.Text(distanceText.width, "12px Arial", "#ff7700");
 	debug.y = 45;
 	debug.x =  distanceText.width;
 	stage.addChild(debug);
