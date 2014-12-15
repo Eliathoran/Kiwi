@@ -105,6 +105,8 @@ function tick() {
 
         background2.x = background.x - stage.canvas.width;
         backgroundFront2.x = backgroundFront1.x - stage.canvas.width;
+        
+        world.Update();
         kiwi.Update();
         platformUpdater.UpdatePlatforms();
     }
@@ -136,7 +138,7 @@ function handleKeyDown(e)
         PauseMenu(); 
     }
     
-    kiwi.jump();
+    kiwi.Jump();
 }
 
 function handleKeyUp(e)

@@ -22,8 +22,8 @@ function Platform(x, y, w, h)
         fixDef.restitution = 0.2;
         fixDef.shape = new Box2D.Collision.Shapes.b2PolygonShape;
         fixDef.shape.SetAsBox(w,h);
-        bodyDef.position.x = this.x;
-        bodyDef.position.y = this.y;
+        bodyDef.position.x = this.x + this.w/2;
+        bodyDef.position.y = this.y + this.h/2;
         world.AddBody(bodyDef, fixDef);
         
         // Graphics
